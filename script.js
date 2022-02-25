@@ -114,26 +114,52 @@ il software stampa il maggiore.
     Snack 1.5
 */
 
+// const msg = document.createElement('h1');
+// const oddNumbers = [];
+
+
+// for(i = 1; i < 7; i++){
+//     let inputNumber = parseFloat(prompt(`inserisci numero ${i} di 6: `));
+
+//     if(isNaN(inputNumber)){
+//         do{
+//             inputNumber = parseFloat(prompt(`inserisci un numero valido ${i} di 6: `));
+//         } while(isNaN(inputNumber));
+//     }
+
+//     if(inputNumber % 2){
+//         oddNumbers.push(inputNumber);
+//     }
+// }
+
+// for(let i = 0; i < oddNumbers.length; i++){
+//     msg.innerHTML += `${oddNumbers[i]} `;
+// }
+
+// document.body.append(msg);
+
+
+/*
+    Snack 1.6
+*/
+
 const msg = document.createElement('h1');
-const oddNumbers = [];
+let sum = 0;
 
+let inputNumber = prompt(`inserisci numero di 4 cifre: `);
 
-for(i = 1; i < 7; i++){
-    let inputNumber = parseFloat(prompt(`inserisci numero ${i} di 6: `));
-
-    if(isNaN(inputNumber)){
-        do{
-            inputNumber = parseFloat(prompt(`inserisci un numero valido ${i} di 6: `));
-        } while(isNaN(inputNumber));
-    }
-
-    if(inputNumber % 2){
-        oddNumbers.push(inputNumber);
-    }
+if(isNaN(parseFloat(inputNumber)) || [...inputNumber].length !=4){
+    do{
+        inputNumber = prompt(`inserisci un numero valido: `);
+    } while(isNaN(parseFloat(inputNumber)) || [...inputNumber].length !=4);
 }
 
-for(let i = 0; i < oddNumbers.length; i++){
-    msg.innerHTML += `${oddNumbers[i]} `;
+let scorporate = [...inputNumber];
+
+for (let i = 0; i < scorporate.length; i++){
+    sum += parseFloat(scorporate[i]);
 }
 
+msg.innerHTML = sum;
 document.body.append(msg);
+
