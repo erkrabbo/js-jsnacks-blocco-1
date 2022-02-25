@@ -148,16 +148,14 @@ let sum = 0;
 
 let inputNumber = prompt(`inserisci numero di 4 cifre: `);
 
-if(isNaN(parseFloat(inputNumber)) || [...inputNumber].length !=4 || parseFloat(inputNumber) < 1000){
-    do{
-        inputNumber = prompt(`inserisci un numero valido: `);
-    } while(isNaN(parseFloat(inputNumber)) || [...inputNumber].length !=4 || parseFloat(inputNumber) < 1000);
+while(isNaN(parseInt(inputNumber)) || [...inputNumber].length !=4 || parseInt(inputNumber) < 1000){      //controllo che la conversione in number vada a buon fine, che il numero abbia 4 cifre e che sia almeno 1000(numero di 4 cifre più piccolo) per evitare errori
+    inputNumber = prompt(`inserisci un numero valido: `);
 }
-
+       
 let scorporate = [...inputNumber];
 
 for (let i = 0; i < scorporate.length; i++){
-    sum += parseFloat(scorporate[i]);
+    sum += parseInt(scorporate[i]);
 }
 
 msg.innerHTML = sum;
