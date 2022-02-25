@@ -54,22 +54,55 @@ il software stampa il maggiore.
     Snack 1.3
 */
 
-let sumFloat = 0;
+// let sumFloat = 0;
+// const msg = document.createElement('h1');
+
+// for(i=1; i<11; i++){
+//     let inputNumber = parseFloat(prompt(`inserisci numero ${i} di 10: `));
+
+//     if(isNaN(inputNumber)){
+//         do{
+//             inputNumber = parseFloat(prompt(`inserisci un numero valido ${i} di 10: `));
+//         } while(isNaN(inputNumber));
+//     }
+
+//     console.log(inputNumber);
+//     sumFloat += inputNumber;
+// }
+
+// msg.innerHTML = sumFloat;
+
+// document.body.append(msg);
+
+
+/*
+    Snack 1.4
+*/
+
 const msg = document.createElement('h1');
 
-for(i=1; i<11; i++){
-    let inputNumber = parseFloat(prompt(`inserisci numero ${i} di 10: `));
+const partecipants = ['Luca Andaloro', 'Gianmarco Gianmarchi', 'Francesco Franceschi', 'Valentina Valente', 'Giorgio Giorgi', 'Maria Mari'];
+let invited = false;
 
-    if(isNaN(inputNumber)){
-        do{
-            inputNumber = parseFloat(prompt(`inserisci un numero valido ${i} di 10: `));
-        } while(isNaN(inputNumber));
+const person = prompt('Come ti chiami?');
+
+for (let i = 0; i < partecipants.length; i++){
+    if (person.toLowerCase().trim() == partecipants[i].toLowerCase().trim()){
+        invited = true;
     }
-
-    console.log(inputNumber);
-    sumFloat += inputNumber;
 }
 
-msg.innerHTML = sumFloat;
+invited ? success() : goAway();
 
-document.body.append(msg);
+
+function success(){
+    msg.innerHTML = 'Entri pure';
+
+    document.body.append(msg);
+}
+
+function goAway(){
+    msg.innerHTML = 'VIA DA QUI!';
+
+    document.body.append(msg);
+}
