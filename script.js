@@ -79,30 +79,61 @@ il software stampa il maggiore.
     Snack 1.4
 */
 
+// const msg = document.createElement('h1');
+
+// const partecipants = ['Luca Andaloro', 'Gianmarco Gianmarchi', 'Francesco Franceschi', 'Valentina Valente', 'Giorgio Giorgi', 'Maria Mari'];
+// let invited = false;
+
+// const person = prompt('Come ti chiami?');
+
+// for (let i = 0; i < partecipants.length; i++){
+//     if (person.toLowerCase().trim() == partecipants[i].toLowerCase().trim()){
+//         invited = true;
+//     }
+// }
+
+// invited ? success() : goAway();
+
+
+// function success(){
+//     msg.innerHTML = 'Entri pure';
+
+//     document.body.append(msg);
+// }
+
+// function goAway(){
+//     msg.innerHTML = 'VIA DA QUI!';
+
+//     document.body.append(msg);
+// }
+
+
+
+
+/*
+    Snack 1.5
+*/
+
 const msg = document.createElement('h1');
+const oddNumbers = [];
 
-const partecipants = ['Luca Andaloro', 'Gianmarco Gianmarchi', 'Francesco Franceschi', 'Valentina Valente', 'Giorgio Giorgi', 'Maria Mari'];
-let invited = false;
 
-const person = prompt('Come ti chiami?');
+for(i = 1; i < 7; i++){
+    let inputNumber = parseFloat(prompt(`inserisci numero ${i} di 6: `));
 
-for (let i = 0; i < partecipants.length; i++){
-    if (person.toLowerCase().trim() == partecipants[i].toLowerCase().trim()){
-        invited = true;
+    if(isNaN(inputNumber)){
+        do{
+            inputNumber = parseFloat(prompt(`inserisci un numero valido ${i} di 6: `));
+        } while(isNaN(inputNumber));
+    }
+
+    if(inputNumber % 2){
+        oddNumbers.push(inputNumber);
     }
 }
 
-invited ? success() : goAway();
-
-
-function success(){
-    msg.innerHTML = 'Entri pure';
-
-    document.body.append(msg);
+for(let i = 0; i < oddNumbers.length; i++){
+    msg.innerHTML += `${oddNumbers[i]} `;
 }
 
-function goAway(){
-    msg.innerHTML = 'VIA DA QUI!';
-
-    document.body.append(msg);
-}
+document.body.append(msg);
