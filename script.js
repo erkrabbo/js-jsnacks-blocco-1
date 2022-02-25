@@ -146,18 +146,23 @@ il software stampa il maggiore.
 const msg = document.createElement('h1');
 let sum = 0;
 
-let inputNumber = prompt(`inserisci numero di 4 cifre: `);
+let inputNumber = prompt(`inserisci numero di 4 cifre (la virgola conta come cifra, lettere inserite dopo i numeri contano 0)`);
 
-while(isNaN(parseInt(inputNumber)) || [...inputNumber].length !=4 || parseInt(inputNumber) < 1000){      //controllo che la conversione in number vada a buon fine, che il numero abbia 4 cifre e che sia almeno 1000(numero di 4 cifre più piccolo) per evitare errori
-    inputNumber = prompt(`inserisci un numero valido: `);
+
+while(isNaN(parseInt(inputNumber)) || [...inputNumber].length !=4){      //controllo che la conversione in number vada a buon fine, che il numero abbia 4 cifre e che sia almeno 1000(numero di 4 cifre più piccolo) per evitare errori
+    inputNumber = prompt(`inserisci numero di 4 cifre (la virgola conta come cifra, lettere inserite dopo i numeri contano 0)`);
 }
        
 let scorporate = [...inputNumber];
 
 for (let i = 0; i < scorporate.length; i++){
-    sum += parseInt(scorporate[i]);
+   if(isNaN(parseInt(scorporate[i]))){
+       scorporate[i] = 0;
+   }
+
+   sum += parseInt(scorporate[i]);
 }
+
 
 msg.innerHTML = sum;
 document.body.append(msg);
-
