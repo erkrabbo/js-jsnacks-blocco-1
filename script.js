@@ -168,11 +168,9 @@ document.body.append(msg);
 function numbersSum(){
     for (i = 0; i < inputNumber.length && counter < 4; i++){
         let parsedIndex = parseInt(inputNumber[i]);
-        if (isNaN(parsedIndex)){
-            continue;
-        } else {
+        if (!isNaN(parsedIndex)){
             counter ++;
             sum += parsedIndex;
-        }
+        } 
     }
 }
