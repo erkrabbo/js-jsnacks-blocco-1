@@ -145,24 +145,34 @@ il software stampa il maggiore.
 
 const msg = document.createElement('h1');
 let sum = 0;
+let counter = 0;
 
-let inputNumber = prompt(`inserisci numero di 4 cifre (la virgola conta come cifra, lettere inserite dopo i numeri contano 0)`);
+let inputNumber = prompt(`inserisci un numero di 4 cifre (verranno contate solo le prime 4 cifre inserite, verrà ignorato qualsiasi carattere che non sia un numero)`);
+
+numbersSum();
 
 
-while(isNaN(parseInt(inputNumber)) || [...inputNumber].length !=4){      //controllo che la conversione in number vada a buon fine, che il numero abbia 4 cifre e che sia almeno 1000(numero di 4 cifre più piccolo) per evitare errori
-    inputNumber = prompt(`inserisci numero di 4 cifre (la virgola conta come cifra, lettere inserite dopo i numeri contano 0)`);
+while (counter < 4){
+    inputNumber = prompt(`Devono esserci almeno 4 cifre`);
+
+    counter = 0;
+    sum = 0;
+
+    numbersSum();
 }
-       
-let scorporate = [...inputNumber];
-
-for (let i = 0; i < scorporate.length; i++){
-   if(isNaN(parseInt(scorporate[i]))){
-       scorporate[i] = 0;
-   }
-
-   sum += parseInt(scorporate[i]);
-}
-
 
 msg.innerHTML = sum;
 document.body.append(msg);
+
+
+function numbersSum(){
+    for (i = 0; i < inputNumber.length && counter < 4; i++){
+        let parsedIndex = parseInt(inputNumber[i]);
+        if (isNaN(parsedIndex)){
+            continue;
+        } else {
+            counter ++;
+            sum += parsedIndex;
+        }
+    }
+}
