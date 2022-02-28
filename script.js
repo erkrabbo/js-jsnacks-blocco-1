@@ -143,34 +143,94 @@ il software stampa il maggiore.
     Snack 1.6
 */
 
-const msg = document.createElement('h1');
+// const msg = document.createElement('h1');
+// let sum = 0;
+// let counter = 0;
+
+// let inputNumber = prompt(`inserisci un numero di 4 cifre (verranno contate solo le prime 4 cifre inserite, verrà ignorato qualsiasi carattere che non sia un numero)`);
+
+// numbersSum();
+
+
+// while (counter < 4){
+//     inputNumber = prompt(`Devono esserci almeno 4 cifre`);
+
+//     counter = 0;
+//     sum = 0;
+
+//     numbersSum();
+// }
+
+// msg.innerHTML = sum;
+// document.body.append(msg);
+
+
+// function numbersSum(){
+//     for (i = 0; i < inputNumber.length && counter < 4; i++){
+//         let parsedIndex = parseInt(inputNumber[i]);
+//         if (!isNaN(parsedIndex)){
+//             counter ++;
+//             sum += parsedIndex;
+//         } 
+//     }
+// }
+
+
+/*
+    Snack 1.9
+*/
+
+// let sum=0;
+
+// for( let i = 1; i<11; i++){
+//     sum+=i;
+// }
+
+// let i = 1;
+
+// while (i<11){
+//     sum+=i;
+//     i++;
+// }
+
+// const min = parseInt(prompt('dimmi da quale numero partire:'));
+// const max = parseInt(prompt('dimmi fin dove arrivare: '));
+
+// for(let i = min; i<=max; i++){
+//     sum +=i;
+// }
+
+// let goOn = true;
+// sum = 0;
+// counter = 0;
+
+// while (goOn){
+//     let number = prompt('dammi un numero: ');
+
+//     if (number.trim().toLowerCase() == 'stop'){
+//         goOn = false;
+//     }
+//     else{
+//         sum+= parseInt(number);
+//         counter++;
+//     }
+// }
+
+// console.log('somma: ', sum, ' media: ', sum / counter);
+
+/*
+    Snack 2.1
+*/
+
 let sum = 0;
-let counter = 0;
 
-let inputNumber = prompt(`inserisci un numero di 4 cifre (verranno contate solo le prime 4 cifre inserite, verrà ignorato qualsiasi carattere che non sia un numero)`);
+for(let i = 0; i < 5; i++){
+    let number = parseFloat(prompt(`inserisci numero ${i + 1} di 5: `));
 
-numbersSum();
-
-
-while (counter < 4){
-    inputNumber = prompt(`Devono esserci almeno 4 cifre`);
-
-    counter = 0;
-    sum = 0;
-
-    numbersSum();
-}
-
-msg.innerHTML = sum;
-document.body.append(msg);
-
-
-function numbersSum(){
-    for (i = 0; i < inputNumber.length && counter < 4; i++){
-        let parsedIndex = parseInt(inputNumber[i]);
-        if (!isNaN(parsedIndex)){
-            counter ++;
-            sum += parsedIndex;
-        } 
+    while(isNaN(number)){
+        number = parseFloat(prompt(`inserisci un numero valido (${i + 1} di 5): `));
     }
+    sum += number;
 }
+
+console.log(`la somma dei numeri inseriti è ${sum}`)
