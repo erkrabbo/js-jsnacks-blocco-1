@@ -259,10 +259,31 @@ il software stampa il maggiore.
     Snack 2.2
 */
 
-let number = parseFloat(prompt('inserisci un numero: '));
+// let number = parseFloat(prompt('inserisci un numero: '));
 
-while (isNaN(number)){
-    number = parseFloat(prompt('inserisci un numero valido: '));
+// while (isNaN(number)){
+//     number = parseFloat(prompt('inserisci un numero valido: '));
+// }
+
+// !(number % 2) ? console.log(number) : console.log(number + 1);
+
+
+/*
+    Snack 2.3
+*/
+
+const names = ['Luca', 'Giorgio', 'Claudio', 'Fabrizio', 'Anna', 'Adele', 'Valentina'];
+const surnames = ['Andaloro', 'Crepaldi', 'Tammaro', 'Terreno', 'Baisi']
+
+const fakeList = []
+
+for (let i = 0; i < 3; i++){
+    let nameIndex = Math.floor(Math.random() * (names.length));
+    let surnameIndex = Math.floor(Math.random() * (surnames.length));
+
+    let fakePerson = `${names[nameIndex]} ${surnames[surnameIndex]}`
+        
+    fakeList.push(fakePerson);
 }
 
-!(number % 2) ? console.log(number) : console.log(number + 1);
+console.log(...fakeList);
