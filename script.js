@@ -28,7 +28,8 @@ btn12.addEventListener('click', snack2_2);
 btn13.addEventListener('click', snack2_3);
 
 
-
+const result = document.createElement('h1');
+document.body.prepend(result);
 
 
 
@@ -38,7 +39,6 @@ Snack 1.1
 L'utente inserisce due numeri in successione, con due prompt.
 il software stampa il maggiore.
  */
-
 function snack1_1(){
     const num1 = parseInt(prompt('numero 1:'));
     const num2 = parseInt(prompt('numero 2:'));
@@ -62,8 +62,6 @@ function snack1_2(){
     const word1 = prompt('parola 1:');
     const word2 = prompt('parola 2:');
 
-    const result = document.createElement('h1');
-
     word1.length < word2.length || word1.length == word2.length ? first() : last();
 
 
@@ -73,12 +71,12 @@ function snack1_2(){
         }else{
             result.innerHTML = `${word1} ${word2}`;
         }
-        document.body.append(result);
+        
     }
 
     function last(){
         result.innerHTML = `${word2} ${word1}`;
-        document.body.append(result);
+        
     }
 }
 
@@ -88,7 +86,6 @@ function snack1_2(){
 
 function snack1_3(){
     let sumFloat = 0;
-    const msg = document.createElement('h1');
 
     for(i=1; i<11; i++){
         let inputNumber = parseFloat(prompt(`inserisci numero ${i} di 10: `));
@@ -98,14 +95,12 @@ function snack1_3(){
                 inputNumber = parseFloat(prompt(`inserisci un numero valido ${i} di 10: `));
             } while(isNaN(inputNumber));
         }
-
-        console.log(inputNumber);
         sumFloat += inputNumber;
     }
 
-    msg.innerHTML = sumFloat;
+    result.innerHTML = sumFloat;
 
-    document.body.append(msg);
+    
 }
 
 /*
@@ -113,8 +108,6 @@ function snack1_3(){
 */
 
 function snack1_4(){
-    const msg = document.createElement('h1');
-
     const partecipants = ['Luca Andaloro', 'Gianmarco Gianmarchi', 'Francesco Franceschi', 'Valentina Valente', 'Giorgio Giorgi', 'Maria Mari'];
     let invited = false;
 
@@ -130,15 +123,15 @@ function snack1_4(){
 
 
     function success(){
-        msg.innerHTML = 'Entri pure';
+        result.innerHTML = 'Entri pure';
 
-        document.body.append(msg);
+        
     }
 
     function goAway(){
-        msg.innerHTML = 'VIA DA QUI!';
+        result.innerHTML = 'VIA DA QUI!';
 
-        document.body.append(msg);
+        
     }
 }
 
@@ -146,7 +139,6 @@ function snack1_4(){
     Snack 1.5
 */
 function snack1_5(){
-    const msg = document.createElement('h1');
     const oddNumbers = [];
     
     
@@ -165,10 +157,10 @@ function snack1_5(){
     }
     
     for(let i = 0; i < oddNumbers.length; i++){
-        msg.innerHTML += `${oddNumbers[i]} `;
+        result.innerHTML += `${oddNumbers[i]} `;
     }
     
-    document.body.append(msg);
+    
 }
 
 /*
@@ -176,7 +168,6 @@ function snack1_5(){
 */
 
 function snack1_6(){
-    const msg = document.createElement('h1');
     let sum = 0;
     let counter = 0;
     
@@ -194,8 +185,8 @@ function snack1_6(){
         numbersSum();
     }
     
-    msg.innerHTML = sum;
-    document.body.append(msg);
+    result.innerHTML = sum;
+    
     
     
     function numbersSum(){
@@ -220,23 +211,31 @@ function snack1_9Static(){
         sum+=i;
     }
     
-    let i = 1;
+    // let i = 1;
     
-    while (i<11){
-        sum+=i;
-        i++;
-    }
-    console.log('somma: ', sum, ' media: ', sum / counter);
+    // while (i<11){
+    //     sum+=i;
+    //     i++;
+    // }
+
+    result.innerHTML = `somma: ${sum} media: ${sum / 10}`;
+    
 }
 
 function snack1_9Range(){
     const min = parseInt(prompt('dimmi da quale numero partire:'));
     const max = parseInt(prompt('dimmi fin dove arrivare: '));
+
+    let sum = 0;
+    let counter = 0;
     
     for(let i = min; i<=max; i++){
         sum +=i;
+        counter++;
     }
-    console.log('somma: ', sum, ' media: ', sum / counter);
+
+    result.innerHTML = `somma: ${sum} media: ${sum / counter}`;
+    
 }
 
 function snack1_9Input(){
@@ -255,6 +254,8 @@ function snack1_9Input(){
             counter++;
         }
     }
+    
+    result.innerHTML = `somma: ${sum} media: ${sum / counter}`;
     
     console.log('somma: ', sum, ' media: ', sum / counter);
 }
@@ -275,6 +276,8 @@ function snack2_1For(){
         sum += number;
     }
     
+    result.innerHTML = `la somma dei numeri inseriti è ${sum}`;
+    
     console.log(`la somma dei numeri inseriti è ${sum}`)
 }
 
@@ -294,6 +297,8 @@ function snack2_1While(){
         counter++;
     }
             
+    result.innerHTML = `la somma dei numeri inseriti è ${sum}`;
+
     console.log(`la somma dei numeri inseriti è ${sum}`)
 }
 
@@ -308,7 +313,7 @@ function snack2_2(){
         number = parseFloat(prompt('inserisci un numero valido: '));
     }
     
-    !(number % 2) ? console.log(number) : console.log(number + 1);
+    !(number % 2) ? result.innerHTML = number : result.innerHTML = number + 1;
 }
 
 /*
@@ -337,5 +342,5 @@ function snack2_3(){
         fakeList.push(fakePerson);
     }
     
-    console.log(...fakeList);
+    result.innerHTML = `${[...fakeList]}`;
 }
