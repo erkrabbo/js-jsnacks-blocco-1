@@ -222,15 +222,34 @@ il software stampa il maggiore.
     Snack 2.1
 */
 
-let sum = 0;
+// let sum = 0;
 
-for(let i = 0; i < 5; i++){
-    let number = parseFloat(prompt(`inserisci numero ${i + 1} di 5: `));
+// for(let i = 0; i < 5; i++){
+//     let number = parseFloat(prompt(`inserisci numero ${i + 1} di 5: `));
+
+//     while(isNaN(number)){
+//         number = parseFloat(prompt(`inserisci un numero valido (${i + 1} di 5): `));
+//     }
+//     sum += number;
+// }
+
+// console.log(`la somma dei numeri inseriti è ${sum}`)
+
+
+// WHILE
+
+let sum = 0;
+let counter = 0;
+
+while (counter < 5){
+    let number = parseFloat(prompt(`inserisci numero ${counter + 1} di 5: `));
 
     while(isNaN(number)){
-        number = parseFloat(prompt(`inserisci un numero valido (${i + 1} di 5): `));
+        number = parseFloat(prompt(`inserisci un numero valido (${counter + 1} di 5): `));
     }
-    sum += number;
-}
 
+    sum += number;
+    counter++;
+}
+        
 console.log(`la somma dei numeri inseriti è ${sum}`)
