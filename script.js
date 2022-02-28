@@ -277,12 +277,19 @@ const surnames = ['Andaloro', 'Crepaldi', 'Tammaro', 'Terreno', 'Baisi']
 
 const fakeList = []
 
-for (let i = 0; i < 3; i++){
-    let nameIndex = Math.floor(Math.random() * (names.length));
-    let surnameIndex = Math.floor(Math.random() * (surnames.length));
+let nameIndex = 0;
+let surnameIndex = 0;
+let fakePerson = `${names[nameIndex]} ${surnames[surnameIndex]}`
 
-    let fakePerson = `${names[nameIndex]} ${surnames[surnameIndex]}`
-        
+
+for (let i = 0; i < 3; i++){
+    do{
+        nameIndex = Math.floor(Math.random() * (names.length));
+        surnameIndex = Math.floor(Math.random() * (surnames.length));
+
+        fakePerson = `${names[nameIndex]} ${surnames[surnameIndex]}`
+    } while(fakeList.includes(fakePerson))
+
     fakeList.push(fakePerson);
 }
 
