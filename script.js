@@ -156,6 +156,7 @@ function snack1_5(){
         }
     }
     
+    result.innerHTML = '';
     for(let i = 0; i < oddNumbers.length; i++){
         result.innerHTML += `${oddNumbers[i]} `;
     }
@@ -244,7 +245,7 @@ function snack1_9Input(){
     counter = 0;
     
     while (goOn){
-        let number = prompt('dammi un numero: ');
+        let number = prompt('dammi un numero (scrivi "stop" se non vuoi aggiungere numeri): ');
     
         if (number.trim().toLowerCase() == 'stop'){
             goOn = false;
